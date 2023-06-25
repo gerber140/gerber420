@@ -1,0 +1,51 @@
+import subprocess
+
+# Wprowadzenie pierwszej liczby przez użytkownika
+liczba1 = float(input("Wprowadź pierwszą liczbę: "))
+
+# Wprowadzenie drugiej liczby przez użytkownika
+liczba2 = float(input("Wprowadź drugą liczbę: "))
+
+# Obliczenie sumy dwóch liczb
+suma = liczba1 + liczba2
+
+# Inicjalizacja repozytorium
+subprocess.run(['git', 'init'])
+
+# Dodanie plików do repozytorium
+subprocess.run(['git', 'add', 'main.py'])
+
+# Zatwierdzenie pierwszej zmiany (commit)
+subprocess.run(['git', 'commit', '-m', 'Dodano wprowadzenie liczb'])
+
+# Obliczenie różnicy dwóch liczb
+roznica = liczba1 - liczba2
+
+# Zatwierdzenie drugiej zmiany (commit)
+subprocess.run(['git', 'commit', '-am', 'Dodano obliczenie różnicy'])
+
+# Obliczenie iloczynu dwóch liczb
+iloczyn = liczba1 * liczba2
+
+# Zatwierdzenie trzeciej zmiany (commit)
+subprocess.run(['git', 'commit', '-am', 'Dodano obliczenie iloczynu'])
+
+# Sprawdzenie, czy druga liczba jest różna od zera, aby uniknąć dzielenia przez zero
+if liczba2 != 0:
+    # Obliczenie ilorazu dwóch liczb
+    iloraz = liczba1 / liczba2
+else:
+    iloraz = "Nie można dzielić przez zero!"
+
+# Wycofanie ostatniej zmiany (revert)
+subprocess.run(['git', 'revert', 'HEAD'])
+
+# Wyświetlenie wyników
+print("Suma:", suma)
+print("Różnica:", roznica)
+print("Iloczyn:", iloczyn)
+print("Iloraz:", iloraz)
+
+# Aktualizacja zmian w repozytorium zdalnym (push)
+subprocess.run(['git', 'remote', 'add', 'origin', 'https://github.com/gerber420/Gerber420.git'])
+subprocess.run(['git', 'push', '-u', 'origin', 'master'])
