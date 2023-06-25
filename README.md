@@ -1,6 +1,6 @@
-Imie:Gabriel
-NrAlbumu:23463
-NrGrupy:c10
+#Imie:Gabriel
+#NrAlbumu:23463
+#NrGrupy:c10
 
 
 <!---
